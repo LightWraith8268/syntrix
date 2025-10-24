@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+*.log
+backend/syntrix.db
+frontend/dist
+tauri/src-tauri/target

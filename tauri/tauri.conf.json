@@ -1,0 +1,47 @@
+{
+  "package": {
+    "productName": "Syntrix",
+    "version": "0.1.0"
+  },
+  "build": {
+    "beforeBuildCommand": "cd ../frontend && npm install && npm run build",
+    "beforeDevCommand": "cd ../frontend && npm install && npm run dev",
+    "devPath": "http://localhost:5173",
+    "distDir": "../frontend/dist"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "fs": {
+        "all": true,
+        "scope": ["**"]
+      },
+      "path": {
+        "all": true
+      },
+      "shell": {
+        "all": false
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.syntrix.app",
+      "icon": [
+        "../frontend/public/syntrix.svg"
+      ]
+    },
+    "windows": [
+      {
+        "title": "Syntrix",
+        "width": 1280,
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' blob: data: https:;"
+    }
+  }
+}

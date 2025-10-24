@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Library {
+  id             String   @id
+  name           String
+  type           String
+  path           String
+  metadataSource String?
+  accentColor    String?
+  createdAt      DateTime @default(now())
+  media          Media[]
+}
+
+model Media {
+  id        String   @id
+  library   Library  @relation(fields: [libraryId], references: [id])
+  libraryId String
+  title     String
+  type      String
+  path      String
+  metadata  Json?
+  progress  Float?   @default(0)
+  updatedAt DateTime @updatedAt
+}
+
+model Playlist {
+  id       String @id
+  name     String
+  mediaIds String
+}
+
+model Setting {
+  id                Int     @id @default(1)
+  port              Int     @default(37915)
+  tailscaleEnabled  Boolean @default(true)
+  invidiousEnabled  Boolean @default(true)
+  invidiousInstance String  @default("https://yewtu.be")
+  accessToken       String?
+}

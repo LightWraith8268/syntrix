@@ -1,0 +1,44 @@
+{
+  "name": "syntrix-backend",
+  "version": "0.1.0",
+  "description": "Syntrix backend API server",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate deploy"
+  },
+  "prisma": {
+    "seed": "ts-node src/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.16.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "fast-glob": "^3.3.2",
+    "ffprobe-client": "^1.0.4",
+    "form-data": "^4.0.0",
+    "mime-types": "^2.1.35",
+    "node-fetch": "^3.3.2",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5",
+    "uuid": "^9.0.1",
+    "ytdl-core": "^4.11.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/mime-types": "^2.1.4",
+    "@types/node": "^20.11.25",
+    "@types/uuid": "^9.0.7",
+    "@types/ytdl-core": "^0.29.8",
+    "prisma": "^5.16.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5"
+  }
+}
